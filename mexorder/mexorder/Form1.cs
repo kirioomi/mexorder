@@ -24,7 +24,19 @@ namespace mexorder
         {
             initLogging();
         }
-
+        private void Output_Text(string text)
+        {
+            var output = string.Concat(new string[]
+            {
+                "[",
+                DateTime.Now.ToString("HH時mm分ss秒"),
+                "]\r\n",
+                text,
+                "\r\n"
+            });
+            Log.Information(output);
+        }
+        
         private void initLogging()
         {
             var executingDir = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
